@@ -9,47 +9,45 @@
 </head>
 
 <body>
-    <header class = "jumbotron1">
+    <section class = "headerSection">
 
         <div class="scores"><a href="./Assets/score-page.html">View Highscores</a></div>
 
         <div class="timer">Time Left: <span id="time">0</span></div>
+        
+        <h1 id = "headerDeets">Coding Quiz</h1>
 
-        <h1 class= "headerDeets">Coding Quiz</h1>
-
-        <p class = "instructions"> Try to answer all 10 questions within the time limit!
+        <p id = "instructions"> Try to answer all 10 questions within the time limit!
             If you get an answer wrong, you'll lose ten seconds. Good luck!
         </p>
+        
+        <button id="startButton">Start</button>
 
-        <div class="bodyContainer">
-            <div class="beginQuiz">
-                <button id="startButton">Start</button>
-            </div>
-        </div>
-
-    </header>
+    </section>
 
     <section class="quizSection">
-        <div id="questions" class="hide">
-            <h2 id="question-title"></h2>
-            <div id="choices" class="choices"></div>
+
+        <div id="listedQuestions" class="hide">
+            <h2 id="questionTitle"class="hide"></h2>
+            <div id="quizAnswers" class="quizAnswers"></div>
         </div>
 
-        <div id="end-screen" class="hide">
-            <h2>All done!</h2>
-            <p>Your final score is <span id="final-score"></span>.</p>
+        <div id="endScreen" class="hide">
+            <h2>Complete!</h2>
+            <p>Your Score is: <span id="finalScore"></span></p>
             <p>
-            Enter initials: <input type="text" id="initials" max="3" />
-            <button id="submit">Submit</button>
+                Enter initials: <input type="text" id="yourInitials" max="2" />
+                <button id="submitButton">Submit</button>
             </p>
+
         </div>
 
         <div id="feedback" class="feedback hide"></div>
-        </div>
+
     </section>
 
-    <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src= "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
     <script src= "./Assets/script.js"></script>
     <script src= "./Assets/questions.js"></script>
 

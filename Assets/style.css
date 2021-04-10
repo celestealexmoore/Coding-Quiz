@@ -1,9 +1,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 120%;
     background-color: bisque;
 }
 
-.jumbotron1 {
+.headerSection {
     text-align: center;
     background-color: whitesmoke;
     border: 3px solid black;
@@ -27,10 +28,13 @@ body {
     padding: 110px;;
 }
 
-.jumbotron2 {
+.headerSection2 {
     text-align: center;
     background-color: whitesmoke;
     border: 3px solid black;
     padding: 40px;
     margin-bottom: 30px;
+}
+.hide{
+    display: none;
 }
