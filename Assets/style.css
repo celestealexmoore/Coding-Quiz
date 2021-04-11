@@ -28,6 +28,16 @@ body {
     padding: 110px;;
 }
 
+.quizAnswers{
+    display: block;
+    color:black;
+}
+
+#questionTitle{
+    color:black;
+}
+
+
 .headerSection2 {
     text-align: center;
     background-color: whitesmoke;
@@ -38,3 +48,4 @@ body {
 .hide{
     display: none;
 }
+

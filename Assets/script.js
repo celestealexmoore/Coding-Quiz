@@ -1,11 +1,12 @@
 var currentQuestionIndex = 0;
 var quizQuestions = document.getElementById("listedQuestions");
-var time = quizQuestions.length * 20;
+var time = 220;
 var timerID;
 
 var quizQuestions = document.getElementById("listedQuestions");
-var timer = document.getElementById("time");
+var timerID = document.getElementById("timerID");
 var quizAnswers = document.getElementById("quizAnswers");
+var questionTitle = document.getElementById("questionTitle");
 var submitButton = document.getElementById("submitButton");
 var startButton = document.getElementById("startButton");
 var yourInitials = document.getElementById("yourInitials");
@@ -21,10 +22,10 @@ function beginQuiz() {
     quizQuestions.removeAttribute("class");
   
     // start timer
-    timer = setInterval(timerUpdate, 1000);
+    timerID = setInterval(timerUpdate, 1000);
   
     // show starting time
-    timer.textContent = time; // or timeLeft?
+    timerID.textContent = time;
   
     showQuestions();
 }
@@ -67,8 +68,11 @@ function showQuestions() {
         time = 0;
       }
   
+    //   var time = listedQuestions.length * 20;
+    //   var timerID = document.getElementById("timerID");
+
       // display new time on page
-      timer.textContent = time;
+      timerID.textContent = time;
       //Give answer feedback
       autoFeedback.textContent = "Sorry!";
     } else {
@@ -85,7 +89,7 @@ function showQuestions() {
     currentQuestionIndex++;
   
     // check if we've run out of questions
-    if (currentQuestionIndex === questions.length) {
+    if (currentQuestionIndex === listedQuestions.length) {
       endQuiz();
     } else {
       showQuestions();
@@ -110,7 +114,7 @@ function showQuestions() {
   function timerUpdate() {
     // update time
     time--;
-    timer.textContent = time;
+    timerID.textContent = time;
   
     // check if user ran out of time
     if (time <= 0) {
@@ -120,7 +124,7 @@ function showQuestions() {
 
   function saveScore() {
     // get value of input box
-    var yourInitials = YourInitials.value.trim();
+    var yourInitials = yourInitials.value.trim();
   
     // make sure value wasn't empty
     if (yourInitials !== "") {
