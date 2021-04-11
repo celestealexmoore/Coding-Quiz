@@ -129,17 +129,18 @@ function showQuestions() {
         JSON.parse(window.localStorage.getItem("highscores")) || [];
   
       // format new score object for current user
-      var newestScore = {
+
+      var yourScore = {
         score: time,
         yourInitials: yourInitials
       };
   
       // save to localstorage
-      highscores.push(newestScore);
-      window.localStorage.setItem("highscores", JSON.stringify(highscores));
+      highscores.push(yourScore);
+      window.localStorage.setItem("your-score", JSON.stringify(highscores));
   
       // redirect to next page
-      window.location.href = "score-page.html";
+      window.location.href = "./Assets/score-page.html";
     }
   }
 
