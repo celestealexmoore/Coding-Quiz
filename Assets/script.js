@@ -27,6 +27,8 @@ function beginQuiz() {
   
     showQuestions();
 }
+ // user clicks button to start quiz
+ startButton.onclick = beginQuiz;
 
 function showQuestions() {
     // get current question object from array
@@ -63,7 +65,7 @@ function showQuestions() {
       time -= 10;
   
       if (time < 0) {
-        time = 0;
+        timerID.textContent = 0;
       }
 
       // display new time on page
@@ -90,6 +92,8 @@ function showQuestions() {
       showQuestions();
     }
   }
+
+
   function endQuiz() {
     // stop timer
     clearInterval(timerInterval);
@@ -125,8 +129,8 @@ function showQuestions() {
     // make sure value wasn't empty
     if (yourInitials !== "") {
       // get saved scores from localstorage, or if not any, set to empty array
-      var highscores =
-        JSON.parse(window.localStorage.getItem("highscores")) || [];
+      var scores =
+        JSON.parse(window.localStorage.getItem("score")) || [];
   
       // format new score object for current user
 
@@ -136,13 +140,27 @@ function showQuestions() {
       };
   
       // save to localstorage
-      highscores.push(yourScore);
-      window.localStorage.setItem("your-score", JSON.stringify(highscores));
-  
+      scores.push(yourScore);
+      window.localStorage.setItem("#your-score", JSON.stringify(yourScore));
+
       // redirect to next page
       window.location.href = "./Assets/score-page.html";
+      
+
+
+      //This isn't working!!!! Please advise in notes about assignment.
+      var scorePageLog = document.querySelector("#your-score");
+      var postYourScore = document.createElement('p');
+      postYourScore.classList.add('headerDeets2');
+      postYourScore.textContent = ("Your Score: " + yourScore);
+
+      scorePageLog.appendChild(postYourScore);
+
     }
   }
+ // user clicks button to submit initials
+ submitButton.onclick = saveScore;
+
 
   function enterKey(event) {
     // "13" represents the enter key
@@ -150,11 +168,5 @@ function showQuestions() {
       saveScore();
     }
   }
-  
-  // user clicks button to submit initials
-  submitButton.onclick = saveScore;
-  
-  // user clicks button to start quiz
-  startButton.onclick = beginQuiz;
-  
   yourInitials.onkeyup = enterKey;
+
